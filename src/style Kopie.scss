@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css?family=Karla:weight@400;700&display=swap");
+@import "menu";
+@import "fonts";
+@import "tools";
+@import "grid";
+$font: "Karla", sans-serif;
+$primary-color: #3e6f9e;
+
+
+
+$primary-font-color: rgba(0, 0, 0, 0.712);
+$bg-color-a: rgba(255, 255, 255, 0.603);
+$bg-color-b: rgba(31, 31, 31, 0.603);
+$bg-color-default: rgba(248, 229, 188, 0.432);
+:root {
+	font-size: 18px;
+}
+body{	
+  --color-text: rgb(3, 40, 43);
+	--color-bg: #f8c792;
+	--color-link: rgb(14, 66, 90);
+	--color-link-hover: #000;
+	--color-border: #a7927b;
+	--marquee-bg: rgb(32, 83, 83);
+	--marquee-text: #fff;
+	--menu-focus: #775e41;
+	color: var(--color-text);
+	background-color: var(--color-bg);
+	font-family: "HKGrotesk-Bold", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;}
+
+
+h1,
+p,
+a,
+h2,
+h4 {
+  
+  color: $primary-font-color;
+  font-display: swap;
+  @include set-fontsize(sm);
+  @include fadeIn(1s);
+}
+html {
+  width: 100%;
+  height: auto;
+}
+body {
+  margin: 1rem;
+  background: $bg-color-default;
+}
+.header {
+  
+  min-height: 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  
+  .logo_desktop{
+   display:none ;
+  }
+  svg{
+    min-width: 8%;
+    max-width: 200px;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-self: flex-start ;
+    @include fadeIn(2s);
+  
+    
+  }
+
+  .circle {
+    width: 19px;
+    height: 19px;
+    z-index: 3;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: $primary-font-color;
+    border-radius: 50%;
+
+    align-self: flex-end;
+  }
+}
+
+
+
+.content_a{
+  
+ position: relative;
+ display:none;
+      svg{
+        position: absolute;
+        max-width:1800px;
+        top:00px;
+        left:0;
+        
+        
+      }
+      img {
+        display:block;
+       
+        top: 0;
+        left: 0;
+        max-width: 1200px;
+        width:90%;
+        
+
+        //ax-width: 100%;
+      }
+
+}
+
+@include respond-above(lg) {
+  img {
+    width: 100%;
+    max-width: 1200px;
+  }
+}
+.copyright {
+  font-size: 0.9rem;
+}
+
+@include respond-above(sm) {
+  h1,
+  p,
+  a,
+  h2,
+  h4 {
+    @include set-fontsize(sm);
+  }
+}
+
+@include respond-above(md) {
+  h1,
+  p,
+  a,
+  h2,
+  h4 {
+    @include set-fontsize(xs);
+  }
+}
+
+.inner_wrapper {
+  margin: 0.5rem;
+}
