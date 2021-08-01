@@ -1,18 +1,35 @@
 import "./style.scss";
-import AOS from 'aos';
-import './aos.scss'; // You can also use <link> for styles
+
 import { getUsers } from "./common/usersAPI";
 import { Menu } from './menu';
+import img from "./assets/images/c1.png"
 // initialize the menu
 new Menu(document.querySelector('.menu'));
 
-AOS.init();
 
-  document.addEventListener('aos:in', ({ detail }) => {
-    console.log('animated in', detail);
-  });
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  console.log(img);
+
+  document.querySelectorAll(".image").forEach(e => e.src=img)
+});
+
+const links = document.querySelectorAll('.menu__item-link')
+links.forEach(e =>{
   
-  document.addEventListener('aos:out', ({ detail }) => {
-    console.log('animated out', detail);
+  e.addEventListener('click', e => {
+    e.preventDefault();
+    console.log(e);
+    if (e.target.classList.contains(".firstClicked")) {
+      e.target.classList.remove(".firstClicked")
+      console.log('second click');
+      window.open('http://laurasigner.com', '_blank');
+    } else {
+      e.target.classList.add(".firstClicked")
+      console.log('first click');
+
+    }
+  
+    this.isSwiping = false;
   });
-//getUsers().then(json => console.log(json));ws
+})

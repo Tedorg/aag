@@ -5,12 +5,31 @@
 
 
 header{
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: fixed;
-  top: 0;
-  left:0;
+  padding: 10px 10px;
+  color: rgb(182, 64, 64);
+  z-index: 999;
+  height:4rem ;
+  width: 100%;
+
   svg{
-    width: 30%;
+    width: 12.5%;
+    max-width:100px;
   }
 }
 
+.dummy_header{
+  height:4rem ;
+}
+
+section{
+  width: 100vw;
+	height: calc(100vh - 13rem);
+  p{
+    font-size: 2rem;
+    padding: 1rem 2rem;
+  }
+}

@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
+  mode: 'development',
     module:{
         rules:[
            
@@ -10,25 +11,44 @@ module.exports = {
                 use: ["style-loader", "css-loader","sass-loader"]
             },
             {
-                test: /\.(gif|png|jpg)$/,
+            
+                test: /\.(gif|png|jpe?g|svg)$/i,
                 use: [
+                  'file-loader',
                   {
-                    loader: 'file-loader',
+                    loader: 'image-webpack-loader',
                     options: {
-                    esModule: false,
-                      name: 'name].[ext]',
-                      outputPath: 'assets/images'
+                      mozjpeg: {
+                        progressive: true,
+                      },
+                      // optipng.enabled: false will disable optipng
+                      optipng: {
+                        enabled: true,
+                      },
+                      pngquant: {
+                        quality: [0.25, 0.40],
+                        speed: 4
+                      },
+                      gifsicle: {
+                        interlaced: false,
+                      },
+                      // the webp option will enable WEBP
+                      webp: {
+                        enabled: true,
+                        quality: 75
+                      }
                     }
-                  }
-                ]
-              },
+                  },
+                ],
+              
+            },
         
-              {
-                test:/\.html$/,
-                use: [
-                  'html-loader'
-                ]
-              },
+              // {
+              //   test:/\.html$/,
+              //   use: [
+              //     'html-loader'
+              //   ]
+              // },
             {
                 test: /\.js&/,
                 exclude: /node_modules/,

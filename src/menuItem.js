@@ -19,6 +19,7 @@ export class MenuItem {
     initEvents() {
         this.onMouseEnterFn = ev => this.mouseEnter(ev);
         this.DOM.link.addEventListener('mouseenter', this.onMouseEnterFn);
+       
         this.onMouseLeaveFn = ev => this.mouseLeave(ev);
         this.DOM.link.addEventListener('mouseleave', this.onMouseLeaveFn);
     }
